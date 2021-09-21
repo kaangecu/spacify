@@ -15,12 +15,12 @@ export default function MainPage() {
   }, []);
 
   const onSearchClick = () => {
-    startDate &&
-      endDate &&
-      getApodBetweenDates(
-        startDate.toISOString().substring(0, 10),
-        endDate.toISOString().substring(0, 10)
-      ).then((res) => setData(res));
+    startDate && endDate && startDate < endDate
+      ? getApodBetweenDates(
+          startDate.toISOString().substring(0, 10),
+          endDate.toISOString().substring(0, 10)
+        ).then((res) => setData(res))
+      : alert("Stat Date can't be after End Date");
   };
 
   return (

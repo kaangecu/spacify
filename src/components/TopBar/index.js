@@ -25,6 +25,7 @@ export default function TopBar({
           }}
           dateFormat="mm-dd-yy"
           showIcon
+          maxDate={new Date()}
         />
       </div>
       <div className="top-bar-calender">
@@ -39,6 +40,7 @@ export default function TopBar({
           }}
           dateFormat="mm-dd-yy"
           showIcon
+          maxDate={new Date()}
         />
       </div>
       <Button
