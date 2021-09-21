@@ -10,6 +10,7 @@ body {
 }
 
 .top-bar {
+  display: flex;
   border: #2c2c2b;
   border-radius: 5px;
   width: 99%;
@@ -17,6 +18,26 @@ body {
   background-color: #2c2c2b;
   z-index: 1;
   margin: 3px;
+
+  &-img {
+    margin-right: 50em;
+  }
+
+  &-calender {
+    align-self: center;
+    margin: 0.5em;
+
+    &-label {
+      color: white;
+      font-size: 1.2em;
+      margin: 10px;
+    }
+  }
+
+  &-button {
+    height: 30px;
+    align-self: center;
+  }
 }
 
 .card {

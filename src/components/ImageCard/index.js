@@ -41,7 +41,7 @@ export default function ImageCard({ data }) {
         footer={footer}
         header={header}
       >
-        <p className="p-m-0" className="card-p">
+        <p className="card-p">
           {data?.explanation}
         </p>
       </Card>
