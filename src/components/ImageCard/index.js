@@ -1,24 +1,50 @@
-import React from 'react'
-import { Card } from 'primereact/card';
-import { Button } from 'primereact/button';
-import errorImage from '../../assets/errorPlaceholder.png'
+import React, { useState } from "react";
+import { Card } from "primereact/card";
+import { Button } from "primereact/button";
+import errorImage from "../../assets/errorPlaceholder.png";
 
-export default function ImageCard({data}) {
+export default function ImageCard({ data }) {
+  const [isLiked, setIsLiked] = useState(false);
 
-    const header = (
-        <img alt="Card" src={data?.url} onError={(e) => e.target.src=errorImage} />
-    );
-    const footer = (
-        <span>
-            <Button label="Like" icon="pi pi-heart" />
-        </span>
-    );
+  const header = (
+    <img
+      alt="Card"
+      src={data?.url}
+      onError={(e) => (e.target.src = errorImage)}
+    />
+  );
+  const footer = (
+    <span>
+      {isLiked ? (
+        <Button
+          label="Dislike"
+          icon="pi pi-thumbs-down"
+          onClick={() => setIsLiked(false)}
+          className="card-button-red"
+        />
+      ) : (
+        <Button
+          label="Like"
+          icon="pi pi-heart"
+          onClick={() => setIsLiked(true)}
+        />
+      )}
+    </span>
+  );
 
-    return (
-        <div>   
-            <Card title={data?.title} subTitle={data?.date} style={{ width: '35em' }} footer={footer} header={header}>
-                <p className="p-m-0" style={{lineHeight: '1.5'}}>{data?.explanation}</p>
-            </Card>
-        </div>
-    )
+  return (
+    <div className="card">
+      <Card
+        title={data?.title}
+        subTitle={data?.date}
+        className="card-title"
+        footer={footer}
+        header={header}
+      >
+        <p className="p-m-0" className="card-p">
+          {data?.explanation}
+        </p>
+      </Card>
+    </div>
+  );
 }
